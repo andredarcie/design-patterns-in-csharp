@@ -1,7 +1,7 @@
 # Design Patterns in C#
 
 ## Creational Patterns
-- [AbstractFactory](FactoryMethod)
+- [FactoryMethod](FactoryMethod)
 - [AbstractFactory](AbstractFactory)
 - [Builder](Builder)
 - [Prototype](Prototype)
