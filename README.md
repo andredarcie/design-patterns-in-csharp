@@ -5,3 +5,8 @@
 - [AbstractFactory](AbstractFactory)
 - [Builder](Builder)
 - [Prototype](Prototype)
+- [Singleton](Singleton)
+
+## Structural Patterns
+- [Adapter](Adapter)
+- [Bridge](Bridge)

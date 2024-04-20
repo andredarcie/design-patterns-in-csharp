@@ -7,10 +7,21 @@ namespace design_patterns_in_chsarp
     {
         static void Main(string[] args)
         {
+            CreationalPatterns();
+            StructuralPatterns();
+        }
+
+        public static void CreationalPatterns() {
             FactoryMethod();
             AbstractFactory();
             Builder();
             Prototype();
+            CallSingleton();
+        }
+
+        public static void StructuralPatterns() {
+            Adapter();
+            Bridge();
         }
 
         private static void FactoryMethod() {
@@ -44,6 +55,39 @@ namespace design_patterns_in_chsarp
 
             Console.WriteLine("Original: " + originalRobot);
             Console.WriteLine("Cloned: " + clonedRobot);
+        }
+
+        private static void CallSingleton() {
+            // constructor is private
+            // var obj = new Singleton();
+
+            var obj = Singleton.Instance;
+
+            obj.DoSomething();
+        }
+
+        private static void Adapter() {
+            PayPal paypal = new PayPal();
+            IPaymentProcessor paypalProcessor = new PayPalAdapter(paypal);
+            paypalProcessor.ProcessPayment("100.00");
+
+            Stripe stripe = new Stripe();
+            IPaymentProcessor stripeProcessor = new StripeAdapter(stripe);
+            stripeProcessor.ProcessPayment("50.00,USD");
+        }
+
+        private static void Bridge() {
+            IDevice tv = new TV();
+            RemoteControl remote = new RemoteControl(tv);
+            remote.TogglePower();
+            remote.SetChannel(3);
+            remote.VolumeUp();
+
+            IDevice radio = new Radio();
+            RemoteControl radioRemote = new RemoteControl(radio);
+            radioRemote.TogglePower();
+            radioRemote.SetChannel(88);
+            radioRemote.VolumeDown();
         }
     }
 }
