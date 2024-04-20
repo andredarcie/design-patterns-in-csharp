@@ -1,12 +1,12 @@
 # Design Patterns in C#
 
 ## Creational Patterns
-- [FactoryMethod](FactoryMethod)
-- [AbstractFactory](AbstractFactory)
-- [Builder](Builder)
-- [Prototype](Prototype)
-- [Singleton](Singleton)
+- [FactoryMethod](CreationalPatterns/FactoryMethod)
+- [AbstractFactory](CreationalPatterns/AbstractFactory)
+- [Builder](CreationalPatterns/Builder)
+- [Prototype](CreationalPatterns/Prototype)
+- [Singleton](CreationalPatterns/Singleton)
 
 ## Structural Patterns
-- [Adapter](Adapter)
-- [Bridge](Bridge)
+- [Adapter](StructuralPatterns/Adapter)
+- [Bridge](StructuralPatterns/Bridge)
