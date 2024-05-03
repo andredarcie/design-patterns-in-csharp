@@ -1,4 +1,4 @@
-# Design Patterns in C#
+# Design Patterns em C#
 Este repositório é uma coleção abrangente e prática de padrões de design implementados em C#. Ele serve como um recurso valioso para desenvolvedores que desejam aprimorar suas habilidades em arquitetura de software, oferecendo exemplos detalhados e bem comentados de cada padrão de design.
 
 ## Creational Patterns 📦⚙️
@@ -27,3 +27,12 @@ Permite que interfaces incompatíveis colaborem ao envolver uma das interfaces p
 
 - [Bridge](StructuralPatterns/Bridge)
 Desacopla uma abstração da sua implementação, permitindo que as duas variem independentemente.
+
+- [Composite](StructuralPatterns/Composite)
+Permite tratar objetos individuais e composições de objetos de maneira uniforme, organizando-os em uma estrutura de árvore.
+
+- [Decorator](StructuralPatterns/Decorator)
+Permite estender a funcionalidade de um objeto dinamicamente, envolvendo-o em classes decoradoras que adicionam comportamentos ou estados adicionais sem modificar a classe original.
+
+- [Facade](StructuralPatterns/Facade)
+Fornece uma interface simplificada para um conjunto complexo de classes, subsistemas ou APIs, facilitando sua utilização pelos clientes sem expor detalhes de implementação complexos.

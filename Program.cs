@@ -22,6 +22,9 @@ namespace design_patterns_in_chsarp
         public static void StructuralPatterns() {
             Adapter();
             Bridge();
+            Composite();
+            Decorator();
+            Facade();
         }
 
         private static void FactoryMethod() {
@@ -88,6 +91,35 @@ namespace design_patterns_in_chsarp
             radioRemote.TogglePower();
             radioRemote.SetChannel(88);
             radioRemote.VolumeDown();
+        }
+
+        private static void Composite() {
+            var mainPanel = new Panel("Main Panel");
+            var subPanel = new Panel("Sub Panel");
+
+            var okButton = new Button("OK Button");
+            var cancelButton = new Button("Cancel Button");
+
+            subPanel.AddComponent(okButton);
+            subPanel.AddComponent(cancelButton);
+            
+            mainPanel.AddComponent(subPanel);
+
+            mainPanel.Display();
+        }
+
+        private static void Decorator() {
+            Subscription mySubscription = new BasicSubscription();
+            Console.WriteLine($"{mySubscription.GetFeatures()} custa {mySubscription.GetCost():C}");
+
+            mySubscription = new PremiumContent(mySubscription);
+            mySubscription = new AdditionalDevices(mySubscription);
+            Console.WriteLine($"{mySubscription.GetFeatures()} custa {mySubscription.GetCost():C}");
+        }
+
+        private static void Facade() {
+            TravelFacade travelFacade = new TravelFacade();
+            travelFacade.BookTravel(); // Facilita a reserva de todos os aspectos da viagem.
         }
     }
 }
