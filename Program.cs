@@ -25,6 +25,7 @@ namespace design_patterns_in_chsarp
             Composite();
             Decorator();
             Facade();
+            Flyweight();
         }
 
         private static void FactoryMethod() {
@@ -120,6 +121,30 @@ namespace design_patterns_in_chsarp
         private static void Facade() {
             TravelFacade travelFacade = new TravelFacade();
             travelFacade.BookTravel(); // Facilita a reserva de todos os aspectos da viagem.
+        }
+
+        private static void Flyweight() {
+            ChessBoard board = new();
+
+            board.PlacePiece(0, 0, "White", "Rook");
+            board.PlacePiece(0, 1, "White", "Knight");
+            board.PlacePiece(0, 2, "White", "Bishop");
+            board.PlacePiece(0, 3, "White", "Queen");
+            board.PlacePiece(0, 4, "White", "King");
+            board.PlacePiece(0, 5, "White", "Bishop"); // Usa instância já criada
+            board.PlacePiece(0, 6, "White", "Knight"); // Usa instância já criada
+            board.PlacePiece(0, 7, "White", "Rook"); // Usa instância já criada
+
+            board.PlacePiece(7, 0, "Black", "Rook");
+            board.PlacePiece(7, 1, "Black", "Knight");
+            board.PlacePiece(7, 2, "Black", "Bishop");
+            board.PlacePiece(7, 3, "Black", "Queen");
+            board.PlacePiece(7, 4, "Black", "King");
+            board.PlacePiece(7, 5, "Black", "Bishop"); // Usa instância já criada
+            board.PlacePiece(7, 6, "Black", "Knight"); // Usa instância já criada
+            board.PlacePiece(7, 7, "Black", "Rook"); // Usa instância já criada
+
+            board.Display();
         }
     }
 }
