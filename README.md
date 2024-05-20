@@ -39,3 +39,6 @@ Fornece uma interface simplificada para um conjunto complexo de classes, subsist
 
 - [Flyweight (Cache)](StructuralPatterns/Flyweight)
 Utilizado para minimizar o uso de memória ao compartilhar o máximo possível de dados entre objetos semelhantes. Isso é especialmente útil em situações onde um grande número de objetos são necessários, mas a maioria dos dados desses objetos podem ser compartilhados.
+ 
+- [Proxy](StructuralPatterns/Proxy)
+Atua como um intermediário para controlar o acesso a um objeto. Ele fornece uma substituição para o objeto real, permitindo que você adicione lógica adicional antes ou depois de acessar o objeto real, como verificação de permissões, cache, logging ou adiamento da criação e inicialização do objeto real até que ele seja necessário.

@@ -26,6 +26,7 @@ namespace design_patterns_in_chsarp
             Decorator();
             Facade();
             Flyweight();
+            Proxy();
         }
 
         private static void FactoryMethod() {
@@ -145,6 +146,14 @@ namespace design_patterns_in_chsarp
             board.PlacePiece(7, 7, "Black", "Rook"); // Usa instância já criada
 
             board.Display();
+        }
+
+        private static void Proxy() {
+            IDatabase adminDatabase = new DatabaseProxy("Admin");
+            adminDatabase.Query("SELECT * FROM Users");
+
+            IDatabase userDatabase = new DatabaseProxy("User");
+            userDatabase.Query("SELECT * FROM Users");
         }
     }
 }
