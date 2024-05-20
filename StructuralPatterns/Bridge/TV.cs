@@ -9,4 +9,6 @@ public class TV : IDevice
     public void SetChannel(int channel) => this.channel = channel;
     public int GetVolume() => volume;
     public void SetVolume(int volume) => this.volume = volume;
+    public bool IsOn => isOn;
+    public int GetChannel() => channel;
 }
