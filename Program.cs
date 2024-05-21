@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net;
-
-namespace design_patterns_in_chsarp
+﻿namespace design_patterns_in_chsarp
 {
     internal class Program
     {
@@ -9,6 +6,7 @@ namespace design_patterns_in_chsarp
         {
             CreationalPatterns();
             StructuralPatterns();
+            BehavioralPatterns();
         }
 
         public static void CreationalPatterns() {
@@ -27,6 +25,10 @@ namespace design_patterns_in_chsarp
             Facade();
             Flyweight();
             Proxy();
+        }
+
+        public static void BehavioralPatterns() {
+            ChainOfResponsibility();
         }
 
         private static void FactoryMethod() {
@@ -154,6 +156,20 @@ namespace design_patterns_in_chsarp
 
             IDatabase userDatabase = new DatabaseProxy("User");
             userDatabase.Query("SELECT * FROM Users");
+        }
+
+        private static void ChainOfResponsibility() {
+            PaymentHandler balanceCheck = new BalanceCheckHandler();
+            PaymentHandler cardValidation = new CardValidationHandler();
+            PaymentHandler fraudDetection = new FraudDetectionHandler();
+
+            balanceCheck.SetNextHandler(cardValidation);
+            cardValidation.SetNextHandler(fraudDetection);
+
+            var creditCardNumber = "4111111111111111";
+            var amount = 500;
+            PaymentRequest request = new PaymentRequest(creditCardNumber, amount);
+            balanceCheck.Handle(request);
         }
     }
 }
