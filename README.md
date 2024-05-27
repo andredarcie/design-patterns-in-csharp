@@ -43,5 +43,8 @@ Utilizado para minimizar o uso de memória ao compartilhar o máximo possível d
 - [Proxy](StructuralPatterns/Proxy)
 Atua como um intermediário para controlar o acesso a um objeto. Ele fornece uma substituição para o objeto real, permitindo que você adicione lógica adicional antes ou depois de acessar o objeto real, como verificação de permissões, cache, logging ou adiamento da criação e inicialização do objeto real até que ele seja necessário.
 
+# Behavioral Patterns 🧠🔄
+Os padrões comportamentais (Behavioral Patterns) são técnicas de design que simplificam a comunicação entre objetos e a delegação de responsabilidades, promovendo interações flexíveis e eficientes. Esses padrões ajudam a definir como os objetos interagem e colaboram, facilitando a implementação de fluxos de trabalho complexos.
+
 - [Chain of Responsibility (CoR, Chain of Command)](StructuralPatterns/BehavioralPatterns)
 Permite que uma solicitação seja passada por uma cadeia de manipuladores. Cada manipulador na cadeia decide se processa a solicitação ou a passa para o próximo manipulador.
