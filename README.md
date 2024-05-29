@@ -1,4 +1,5 @@
-# Design Patterns em C#
+# Design Patterns em C# [PT-BR]
+
 Este repositório é uma coleção abrangente e prática de padrões de design implementados em C#. Ele serve como um recurso valioso para desenvolvedores que desejam aprimorar suas habilidades em arquitetura de software, oferecendo exemplos detalhados e bem comentados de cada padrão de design.
 
 ## Creational Patterns 📦⚙️
