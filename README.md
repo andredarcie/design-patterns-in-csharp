@@ -46,5 +46,26 @@ Atua como um intermediário para controlar o acesso a um objeto. Ele fornece uma
 ## Behavioral Patterns 🧠🔄
 Os padrões comportamentais (Behavioral Patterns) são técnicas de design que simplificam a comunicação entre objetos e a delegação de responsabilidades, promovendo interações flexíveis e eficientes. Esses padrões ajudam a definir como os objetos interagem e colaboram, facilitando a implementação de fluxos de trabalho complexos.
 
-- [Chain of Responsibility (CoR, Chain of Command)](StructuralPatterns/BehavioralPatterns)
+- [Chain of Responsibility (CoR, Chain of Command)](BehavioralPatterns/ChainOfResponsibility)
 Permite que uma solicitação seja passada por uma cadeia de manipuladores. Cada manipulador na cadeia decide se processa a solicitação ou a passa para o próximo manipulador.
+
+- [Command (Action, Transaction)](BehavioralPatterns/Command)
+Permite que solicitações sejam encapsuladas como objetos, permitindo que clientes parametrizem objetos com diferentes solicitações, filas ou registros de solicitações, e forneçam suporte para operações reversíveis.
+
+- Iterator - TODO
+Fornece uma maneira de acessar os elementos de um agregado sequencialmente sem expor sua representação subjacente. Esse padrão permite a travessia de uma coleção de maneiras diferentes, encapsulando a lógica de travessia.
+
+- Mediator (Intermediary, Controller) - TODO
+Define um objeto que encapsula como um conjunto de objetos interage. Este padrão promove o desacoplamento ao impedir que os objetos se refiram uns aos outros explicitamente, permitindo que suas interações variem independentemente.
+
+- Memento (Snapshot) - TODO
+
+- Observer (Event-Subscriber, Listener) - TODO
+
+- State - TODO
+
+- Strategy - TODO
+
+- Template Method - TODO
+
+- Visitor - TODO
