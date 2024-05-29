@@ -27,17 +27,13 @@ public static class BehavioralPatterns
         Document document = new Document();
         CommandManager commandManager = new CommandManager();
 
-        // Execute some commands
         var insertCommand1 = new InsertTextCommand(document, "Hello ");
         var insertCommand2 = new InsertTextCommand(document, "World!");
 
         commandManager.ExecuteCommand(insertCommand1);
         commandManager.ExecuteCommand(insertCommand2);
 
-        // Undo the last command
-        commandManager.Undo();
-
-        // Redo the last command
-        commandManager.Redo();
+        commandManager.Undo(); // Remove "World!"
+        commandManager.Redo(); // Adiciona "World!" novamente
     }
 }
