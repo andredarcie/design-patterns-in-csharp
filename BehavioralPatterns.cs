@@ -2,9 +2,48 @@ public static class BehavioralPatterns
 {
     public static void Execute()
     {
-        Console.WriteLine("\n Behavioral Patterns \n");
+        // Title
+        Console.WriteLine("\n══════════════════════════════");
+        Console.WriteLine("       Behavioral Patterns");
+        Console.WriteLine("══════════════════════════════\n");
+
+        // Chain of Responsibility
+        Console.WriteLine("Chain of Responsibility:");
+        Console.WriteLine("─────────────────────────");
+        Console.WriteLine("  ┌───┐    ┌───┐    ┌───┐");
+        Console.WriteLine("  │ A │ →  │ B │ →  │ C │");
+        Console.WriteLine("  └───┘    └───┘    └───┘\n");
+
         ChainOfResponsibility();
+
+        // Command
+        Console.WriteLine("Command:");
+        Console.WriteLine("──────────");
+        Console.WriteLine("  [Button] → ExecuteCommand()");
+        Console.WriteLine("          → Command Action\n");
+
         Command();
+
+        // Iterator
+        Console.WriteLine("Iterator:");
+        Console.WriteLine("───────────");
+        Console.WriteLine("  Collection: [Item1, Item2, Item3]");
+        Console.WriteLine("  Iterator:    ↑\n");
+
+        Iterator();
+
+        // Mediator
+        Console.WriteLine("Mediator:");
+        Console.WriteLine("─────────────");
+        Console.WriteLine("  [ComponentA] ");
+        Console.WriteLine("      ↑");
+        Console.WriteLine("      ↓");
+        Console.WriteLine("  [Mediator]");
+        Console.WriteLine("      ↑");
+        Console.WriteLine("      ↓");
+        Console.WriteLine("  [ComponentB]\n");
+
+        Mediator();
     }
 
     private static void ChainOfResponsibility() 
@@ -35,5 +74,39 @@ public static class BehavioralPatterns
 
         commandManager.Undo(); // Remove "World!"
         commandManager.Redo(); // Adiciona "World!" novamente
+    }
+
+    private static void Iterator() 
+    {
+        UserCollection userCollection = new UserCollection();
+        userCollection.AddUser(new User("Alan Turing", "alan.turing@example.com"));
+        userCollection.AddUser(new User("Grace Hopper", "grace.hopper@example.com"));
+        userCollection.AddUser(new User("Ada Lovelace", "ada.lovelace@example.com"));
+        userCollection.AddUser(new User("Donald Knuth", "donald.knuth@example.com"));
+
+        IIterator iterator = userCollection.CreateIterator();
+
+        while (iterator.HasNext())
+        {
+            User user = iterator.Next();
+            Console.WriteLine($"Name: {user.Name}, Email: {user.Email}");
+        }
+    }
+
+    private static void Mediator() 
+    {
+        IMediator chatMediator = new ChatMediator();
+
+        ChatUser user1 = new ConcreteChatUser("Alice");
+        ChatUser user2 = new ConcreteChatUser("Bob");
+        ChatUser user3 = new ConcreteChatUser("Charlie");
+
+        chatMediator.RegisterUser(user1);
+        chatMediator.RegisterUser(user2);
+        chatMediator.RegisterUser(user3);
+
+        user1.Send("Hello, everyone!");
+        user2.Send("Hi Alice!");
+        user3.Send("Hey Alice and Bob!");
     }
 }

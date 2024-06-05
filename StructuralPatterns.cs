@@ -2,13 +2,64 @@ public static class StructuralPatterns
 {
     public static void Execute()
     {
-        Console.WriteLine("\n Structural Patterns \n");
+        // Title
+        Console.WriteLine("\n══════════════════════════════");
+        Console.WriteLine("        Structural Patterns");
+        Console.WriteLine("══════════════════════════════\n");
+
+        // Adapter
+        Console.WriteLine("Adapter:");
+        Console.WriteLine("─────────────────────────");
+        Console.WriteLine("  [Client] → [Adapter] → [Adaptee]\n");
+
         Adapter();
+
+        // Bridge
+        Console.WriteLine("Bridge:");
+        Console.WriteLine("───────────────────────────");
+        Console.WriteLine("  [Abstraction] → [Implementor]");
+        Console.WriteLine("                  ↳ [ConcreteImplementor]\n");
+
         Bridge();
+
+        // Composite
+        Console.WriteLine("Composite:");
+        Console.WriteLine("──────────────────────────");
+        Console.WriteLine("  [Composite] → [Leaf]");
+        Console.WriteLine("                [Leaf]");
+        Console.WriteLine("                [Composite]");
+        Console.WriteLine("                   ↳ [Leaf]\n");
+
         Composite();
+
+        // Decorator
+        Console.WriteLine("Decorator:");
+        Console.WriteLine("───────────────────────");
+        Console.WriteLine("  [Component] → [Decorator] → [ConcreteComponent]\n");
+
         Decorator();
+
+        // Facade
+        Console.WriteLine("Facade:");
+        Console.WriteLine("────────────────────────");
+        Console.WriteLine("  [Client] → [Facade] → [SubsystemA]");
+        Console.WriteLine("                     → [SubsystemB]\n");
+
         Facade();
+
+        // Flyweight
+        Console.WriteLine("Flyweight:");
+        Console.WriteLine("─────────────────────────");
+        Console.WriteLine("  [Client] → [FlyweightFactory]");
+        Console.WriteLine("                    ↳ [Flyweight]\n");
+
         Flyweight();
+
+        // Proxy
+        Console.WriteLine("Proxy:");
+        Console.WriteLine("─────────────────────");
+        Console.WriteLine("  [Client] → [Proxy] → [RealSubject]\n");
+
         Proxy();
     }
 
