@@ -53,10 +53,10 @@ Permite que uma solicitação seja passada por uma cadeia de manipuladores. Cada
 - [Command (Action, Transaction)](BehavioralPatterns/Command)
 Permite que solicitações sejam encapsuladas como objetos, permitindo que clientes parametrizem objetos com diferentes solicitações, filas ou registros de solicitações, e forneçam suporte para operações reversíveis.
 
-- Iterator - TODO
+- [Iterator](BehavioralPatterns/Iterator)
 Fornece uma maneira de acessar os elementos de um agregado sequencialmente sem expor sua representação subjacente. Esse padrão permite a travessia de uma coleção de maneiras diferentes, encapsulando a lógica de travessia.
 
-- Mediator (Intermediary, Controller) - TODO
+- [Mediator (Intermediary, Controller)](BehavioralPatterns/Mediator)
 Define um objeto que encapsula como um conjunto de objetos interage. Este padrão promove o desacoplamento ao impedir que os objetos se refiram uns aos outros explicitamente, permitindo que suas interações variem independentemente.
 
 - Memento (Snapshot) - TODO
