@@ -59,7 +59,7 @@ Fornece uma maneira de acessar os elementos de um agregado sequencialmente sem e
 - [Mediator (Intermediary, Controller)](BehavioralPatterns/Mediator)
 Define um objeto que encapsula como um conjunto de objetos interage. Este padrão promove o desacoplamento ao impedir que os objetos se refiram uns aos outros explicitamente, permitindo que suas interações variem independentemente.
 
-- [Memento (Snapshot)]
+- [Memento (Snapshot)](BehavioralPatterns/Memento)
 É utilizado no design de software para permitir a captura e o armazenamento do estado atual de um objeto, de modo que possa ser restaurado para esse estado específico mais tarde. 
 
 - Observer (Event-Subscriber, Listener) - TODO
