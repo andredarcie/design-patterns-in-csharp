@@ -44,6 +44,19 @@ public static class BehavioralPatterns
         Console.WriteLine("  [ComponentB]\n");
 
         Mediator();
+
+        // Memento
+        Console.WriteLine("Memento:");
+        Console.WriteLine("────────────");
+        Console.WriteLine("  Originator: Current State");
+        Console.WriteLine("      ↑");
+        Console.WriteLine("      ↓");
+        Console.WriteLine("  Memento: Saved State");
+        Console.WriteLine("      ↑");
+        Console.WriteLine("      ↓");
+        Console.WriteLine("  Caretaker: Holds Memento\n");
+
+        Memento();
     }
 
     private static void ChainOfResponsibility() 
@@ -95,18 +108,61 @@ public static class BehavioralPatterns
 
     private static void Mediator() 
     {
+        // Cria um mediador de chat
         IMediator chatMediator = new ChatMediator();
 
-        ChatUser user1 = new ConcreteChatUser("Alice");
-        ChatUser user2 = new ConcreteChatUser("Bob");
-        ChatUser user3 = new ConcreteChatUser("Charlie");
+        // Cria três usuários do chat com nomes diferentes
+        ChatUser user1 = new ConcreteChatUser("Alan Turing");
+        ChatUser user2 = new ConcreteChatUser("Ada Lovelace");
+        ChatUser user3 = new ConcreteChatUser("John von Neumann");
 
+        // Registra os usuários no mediador de chat
         chatMediator.RegisterUser(user1);
         chatMediator.RegisterUser(user2);
         chatMediator.RegisterUser(user3);
 
-        user1.Send("Hello, everyone!");
-        user2.Send("Hi Alice!");
-        user3.Send("Hey Alice and Bob!");
+        // Usuário 1 envia uma mensagem para todos
+        user1.Send("Olá, pessoal!");
+        // Usuário 2 responde para "Alan Turing"
+        user2.Send("Oi Alan Turing!");
+        // Usuário 3 envia uma mensagem para "Alan Turing" e "Ada Lovelace"
+        user3.Send("Ei Alan Turing e Ada Lovelace!");
+    }
+
+    private static void Memento() 
+    {
+        // Cria um novo documento que suporta o padrão Memento
+        MementoDocument doc = new MementoDocument();
+
+        // Cria um histórico para armazenar os estados do documento
+        DocumentHistory history = new DocumentHistory();
+
+        // Define o texto do documento para a primeira linha de texto
+        doc.Text = "Primeira linha de texto";
+        // Salva o estado atual do documento no histórico
+        history.SaveState(doc);
+
+        // Modifica o texto do documento para a segunda linha de texto
+        doc.Text = "Segunda linha de texto";
+        // Salva o novo estado do documento no histórico
+        history.SaveState(doc);
+
+        // Modifica o texto do documento para a terceira linha de texto
+        doc.Text = "Terceira linha de texto";
+        // Exibe o conteúdo atual do documento
+        Console.WriteLine("Conteúdo atual do Documento: " + doc.Text);
+        
+        // Desfaz a última alteração no documento, voltando ao estado anterior
+        history.Undo(doc);
+        // Exibe o conteúdo do documento após o primeiro desfazer
+        Console.WriteLine("Após o primeiro desfazer: " + doc.Text);
+
+        // Desfaz mais uma alteração, voltando ao estado ainda mais anterior
+        history.Undo(doc);
+        // Exibe o conteúdo do documento após o segundo desfazer
+        Console.WriteLine("Após o segundo desfazer: " + doc.Text);
+
+        // Tenta desfazer novamente, o que pode não ter efeito se não houver mais estados anteriores
+        history.Undo(doc);
     }
 }
