@@ -57,6 +57,10 @@ public static class BehavioralPatterns
         Console.WriteLine("  Caretaker: Holds Memento\n");
 
         Memento();
+
+        Observer();
+
+        State();
     }
 
     private static void ChainOfResponsibility() 
@@ -164,5 +168,54 @@ public static class BehavioralPatterns
 
         // Tenta desfazer novamente, o que pode não ter efeito se não houver mais estados anteriores
         history.Undo(doc);
+    }
+
+    private static void Observer() {
+        // Cria o sujeito
+        ConcreteSubject subject = new ConcreteSubject();
+
+        // Cria observadores
+        ConcreteObserverA observerA = new ConcreteObserverA("Observador A");
+        ConcreteObserverB observerB = new ConcreteObserverB("Observador B");
+
+        // Anexa os observadores ao sujeito
+        subject.Attach(observerA);
+        subject.Attach(observerB);
+
+        // Altera o estado do sujeito
+        subject.Message = "Primeira mensagem";
+
+        // Desanexa um observador
+        subject.Detach(observerA);
+
+        // Altera o estado do sujeito novamente
+        subject.Message = "Segunda mensagem";
+
+        // Output esperado:
+        // Observador A recebeu a mensagem: Primeira mensagem
+        // Observador B recebeu a mensagem: Primeira mensagem
+        // Observador B recebeu a mensagem: Segunda mensagem
+    }
+
+    private static void State()
+    {
+        // Configura o contexto com o estado inicial "Novo Pedido"
+        OrderContext order = new OrderContext(new NewOrderState());
+
+        // Faz a transição pelos estados do pedido
+        order.NextState(); // De "Novo" para "Processando"
+        order.NextState(); // De "Processando" para "Enviado"
+        order.NextState(); // De "Enviado" para "Entregue"
+        order.NextState(); // Permanece em "Entregue"
+
+        // Output esperado:
+        // Estado do pedido mudou para: NewOrderState
+        // Novo pedido recebido. Mudando para estado 'Processando'.
+        // Estado do pedido mudou para: ProcessingOrderState
+        // Pedido está sendo processado. Mudando para estado 'Enviado'.
+        // Estado do pedido mudou para: ShippedOrderState
+        // Pedido foi enviado. Mudando para estado 'Entregue'.
+        // Estado do pedido mudou para: DeliveredOrderState
+        // Pedido foi entregue ao cliente.
     }
 }
