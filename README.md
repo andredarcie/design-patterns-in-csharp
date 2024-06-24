@@ -62,9 +62,11 @@ Define um objeto que encapsula como um conjunto de objetos interage. Este padrã
 - [Memento (Snapshot)](BehavioralPatterns/Memento)
 É utilizado no design de software para permitir a captura e o armazenamento do estado atual de um objeto, de modo que possa ser restaurado para esse estado específico mais tarde.
 
-- [Observer (Event-Subscriber, Listener)](BehavioralPatterns/Observer)
+- [Observer (Event-Subscriber, Listener)](BehavioralPatterns/Observer) 
+O Observer Pattern é um padrão de design comportamental que define uma dependência um-para-muitos entre objetos, de forma que quando um objeto muda de estado, todos os seus dependentes são notificados e atualizados automaticamente.
 
-- State - TODO
+- [State](BehavioralPatterns/State)
+O State Pattern é um padrão de design comportamental que permite a um objeto alterar seu comportamento quando seu estado interno muda, parecendo assim que o objeto mudou sua classe.
 
 - Strategy - TODO
 
