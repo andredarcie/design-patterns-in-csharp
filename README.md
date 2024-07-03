@@ -68,7 +68,8 @@ O Observer Pattern é um padrão de design comportamental que define uma depend�
 - [State](BehavioralPatterns/State)
 O State Pattern é um padrão de design comportamental que permite a um objeto alterar seu comportamento quando seu estado interno muda, parecendo assim que o objeto mudou sua classe.
 
-- Strategy - TODO
+- [Strategy](BehavioralPatterns/Strategy)
+Permite definir uma família de algoritmos, encapsulá-los em classes separadas e torná-los intercambiáveis. Ele facilita a variação do algoritmo em tempo de execução, promovendo flexibilidade e manutenção do código ao seguir o princípio aberto/fechado.
 
 - Template Method - TODO
 

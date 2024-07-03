@@ -61,6 +61,8 @@ public static class BehavioralPatterns
         Observer();
 
         State();
+
+        Strategy();
     }
 
     private static void ChainOfResponsibility() 
@@ -217,5 +219,23 @@ public static class BehavioralPatterns
         // Pedido foi enviado. Mudando para estado 'Entregue'.
         // Estado do pedido mudou para: DeliveredOrderState
         // Pedido foi entregue ao cliente.
+    }
+
+    private static void Strategy() {
+
+        // Criar o contexto de pagamento
+        PaymentContext paymentContext = new PaymentContext();
+
+        // Definir e usar a estratégia de pagamento com cartão de crédito
+        paymentContext.SetPaymentStrategy(new CreditCardPaymentStrategy());
+        paymentContext.ProcessPayment(100.00);
+
+        // Definir e usar a estratégia de pagamento com PayPal
+        paymentContext.SetPaymentStrategy(new PayPalPaymentStrategy());
+        paymentContext.ProcessPayment(150.00);
+
+        // Definir e usar a estratégia de pagamento com transferência bancária
+        paymentContext.SetPaymentStrategy(new BankTransferPaymentStrategy());
+        paymentContext.ProcessPayment(200.00);
     }
 }
