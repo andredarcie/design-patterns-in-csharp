@@ -71,6 +71,8 @@ O State Pattern é um padrão de design comportamental que permite a um objeto a
 - [Strategy](BehavioralPatterns/Strategy)
 Permite definir uma família de algoritmos, encapsulá-los em classes separadas e torná-los intercambiáveis. Ele facilita a variação do algoritmo em tempo de execução, promovendo flexibilidade e manutenção do código ao seguir o princípio aberto/fechado.
 
-- Template Method - TODO
+- [Template Method](BehavioralPatterns/TemplateMethod)
+Define a estrutura de um algoritmo em um método, deixando alguns passos para serem implementados pelas subclasses. Ele permite que subclasses redefinam certos passos de um algoritmo sem alterar sua estrutura geral. Isso promove o reuso de código, pois a lógica comum é mantida na classe base enquanto os detalhes específicos são delegados às subclasses.
 
-- Visitor - TODO
+- [Visitor](BehavioralPatterns/Visitor)
+Permite que você adicione novas operações a objetos de uma estrutura sem modificar as classes desses objetos. Ele separa o algoritmo da estrutura dos objetos, permitindo que você defina novas operações em classes de visitantes (visitors) que são aplicadas aos objetos. Isso é útil quando você precisa executar operações variadas e complexas em uma coleção de objetos diferentes.

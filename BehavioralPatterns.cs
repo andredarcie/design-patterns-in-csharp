@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 public static class BehavioralPatterns
 {
     public static void Execute()
@@ -58,11 +60,58 @@ public static class BehavioralPatterns
 
         Memento();
 
+        // Observer
+        Console.WriteLine("Observer:");
+        Console.WriteLine("────────────");
+        Console.WriteLine("  Subject");
+        Console.WriteLine("    ↑");
+        Console.WriteLine("    ↓");
+        Console.WriteLine("  [Observer1]");
+        Console.WriteLine("  [Observer2]");
+        Console.WriteLine("  [Observer3]\n");
         Observer();
 
+        // State
+        Console.WriteLine("State:");
+        Console.WriteLine("────────────");
+        Console.WriteLine("  Context: Current State");
+        Console.WriteLine("      ↑");
+        Console.WriteLine("      ↓");
+        Console.WriteLine("  [State1]");
+        Console.WriteLine("  [State2]");
+        Console.WriteLine("  [State3]\n");
         State();
 
+        // Strategy
+        Console.WriteLine("Strategy:");
+        Console.WriteLine("────────────");
+        Console.WriteLine("  Context");
+        Console.WriteLine("    ↑");
+        Console.WriteLine("    ↓");
+        Console.WriteLine("  [StrategyA]");
+        Console.WriteLine("  [StrategyB]");
+        Console.WriteLine("  [StrategyC]\n");
         Strategy();
+
+        // Template Method
+        Console.WriteLine("Template Method:");
+        Console.WriteLine("────────────");
+        Console.WriteLine("  AbstractClass");
+        Console.WriteLine("      ↑");
+        Console.WriteLine("      ↓");
+        Console.WriteLine("  [ConcreteClass1]");
+        Console.WriteLine("  [ConcreteClass2]\n");
+        TemplateMethod();
+
+        // Visitor
+        Console.WriteLine("Visitor:");
+        Console.WriteLine("────────────");
+        Console.WriteLine("  Visitor");
+        Console.WriteLine("    ↑");
+        Console.WriteLine("    ↓");
+        Console.WriteLine("  [ElementA]");
+        Console.WriteLine("  [ElementB]\n");
+        Visitor();
     }
 
     private static void ChainOfResponsibility() 
@@ -222,7 +271,6 @@ public static class BehavioralPatterns
     }
 
     private static void Strategy() {
-
         // Criar o contexto de pagamento
         PaymentContext paymentContext = new PaymentContext();
 
@@ -237,5 +285,49 @@ public static class BehavioralPatterns
         // Definir e usar a estratégia de pagamento com transferência bancária
         paymentContext.SetPaymentStrategy(new BankTransferPaymentStrategy());
         paymentContext.ProcessPayment(200.00);
+    }
+
+    private static void TemplateMethod() {
+        // Processando dados JSON
+        DataProcessor jsonProcessor = new JsonDataProcessor();
+        jsonProcessor.ProcessData();
+
+        Console.WriteLine();
+
+        // Processando dados XML
+        DataProcessor xmlProcessor = new XmlDataProcessor();
+        xmlProcessor.ProcessData();
+    }
+
+    private static void Visitor() {
+        // Cria uma lista de produtos, incluindo eletrônicos, roupas e livros
+        var products = new List<IProduct>
+        {
+            new Electronic(1000), // Produto eletrônico com preço de 1000
+            new Clothing(3), // Produto de roupa com peso de 3 kg
+            new Book(10) // Produto livro com 10 unidades
+        };
+
+        // Cria um visitor para calcular o custo de envio
+        IVisitor shippingCostCalculator = new ShippingCostCalculator();
+
+        // Cria um visitor para aplicar descontos
+        IVisitor discountApplier = new DiscountApplier();
+
+        // Aplica o visitor de custo de envio a cada produto na lista
+        foreach (var product in products)
+        {
+            product.Accept(shippingCostCalculator);
+        }
+
+        Console.WriteLine();
+
+        // Aplica o visitor de desconto a cada produto na lista
+        foreach (var product in products)
+        {
+            product.Accept(discountApplier);
+        }
+
+        Console.WriteLine();
     }
 }
